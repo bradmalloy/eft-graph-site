@@ -589,7 +589,7 @@ function formatRequirements(requirementsObject) {
       output += "<h4>No vendor loyalty requirements!</h4>";
     }
     if (locale == "ru-RU") {
-      output += "<h4>Нет требований лояльности к продавцу!</h4>";
+      output += "<h4>Нет требований к лояльности продавца!</h4>";
     }
   }
   output += "<br/>"
@@ -597,7 +597,7 @@ function formatRequirements(requirementsObject) {
     output += "<h3>Skills</h3>";
   }
   if (locale == "ru-RU") {
-    output += "<h3>Умение</h3>";
+    output += "<h3>Умения</h3>";
   }
   if (requirementsObject.skills && requirementsObject.skills.length > 0) {
     requirementsObject.skills.forEach(skillArray => {
@@ -681,6 +681,6 @@ function switchToRu() {
     edges: edges
   };
   network.setData(newData);
-  infoBoxTitle.innerHTML = "укрытие диаграмма";
-  infoBoxContent.innerHTML = "<h3>диаграмма интерактивный, попробуйте!</h3>";
+  infoBoxTitle.innerHTML = "Диаграмма убежища";
+  infoBoxContent.innerHTML = "<h3>Диаграмма интерактивна, попробуйте!</h3>";
 }

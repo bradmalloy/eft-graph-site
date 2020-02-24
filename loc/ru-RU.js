@@ -247,7 +247,7 @@ var stations_ru_RU = [
         image: imgRoot + "lavatory.png",
         requirements: {
             items: [
-                [3, "Гофрированный шлангs"],
+                [3, "Гофрированный шланг"],
                 [5, "Пакет саморезов"],
                 [1, "Электродрель"]
             ]
@@ -261,7 +261,7 @@ var stations_ru_RU = [
         image: imgRoot + "lavatory.png",
         requirements: {
             items: [
-                [6, "Гофрированный шлангs"],
+                [6, "Гофрированный шланг"],
                 [2, "Датчик давления"],
                 [1, "Набор инструментов"],
                 [3, "Xenomorph sealing foam"]
