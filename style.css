@@ -2,81 +2,95 @@
 
 @font-face{font-family: 'Bender';src: url("fonts/Bender.otf");font-weight: normal;font-style: normal;}
 
-*{
+@media only screen and (max-width: 900px) {
+	body {
+		font-size: 24px;
+	}
+}
+
+@media only screen and (min-width: 900px) {
+	body {
+		font-size: 18px;
+	  }
+}
+
+* {
 	padding: 0;
 	margin: 0;
 }
 
-html{
+html {
   height: 100%;
 }
+
 body {
   min-height: calc(100% - 100px);
 }
 
-a{
+a {
 	text-decoration: none;
 }
 
-table, td, tr{
+table, td, tr {
 	border-spacing: 0px;
 }
 
-header{
+header {
 	padding-left: -15px;
 }
 
-body{
+body {
 	background-color: #0e0e0e;
 	font-family: Bender;
 	padding: 50px;
 }
 
-.logotype a{
+.logotype a {
 	background-image: url(img/logotype.png);
 	width: 243px;
 	height: 35px;
 	display: block;
 }
 
-.menu{
+.menu {
 	padding-left: 50px;
 }
 
-.menuLink{
+.menuLink {
 	margin-right: 20px;
 	padding: 7px;
 	color: #9a8866;
-	font-size: 18px;
+	font-size: 1em;
 }
 
 .menuLink.disabled {
 	cursor: not-allowed;
 }
 
-.menuLink:hover{
+.menuLink:hover {
 	background-color: #9a8866;
 	border-radius: 5px;
 	color: #0e0e0e;
 }
 
-#settings{
+#settings {
 	width: 100%;
 	height: 50px;
 	color: #9a8866;
 }
 
-.settings{
+.settings {
 	display: inline-block;
 	width: calc(100% - 300px);
 	height: 50px;
 	text-align: center;
 }
 
-.settings p{
+.settings p {
 	margin-bottom: 7px;
 }
-.lang{
+
+.lang {
 	display: inline-block;
 	width: 280px;
 	float: right;
@@ -85,20 +99,20 @@ body{
 	text-align: center;
 }
 
-.lang a{
+.lang a {
 	color: #9a8866;
 	border-bottom: 1px dotted;
 }
 
-.lang a:hover{
+.lang a:hover {
 	border: 0;
 }
 
-.content{
+.content {
 	height: calc(100vh - 223px);
 }
 
-.rightMenu{
+.rightMenu {
 	border-radius: 5px;
 	background-color: #332f27;
 	display: inline-block;
@@ -108,13 +122,13 @@ body{
 	padding: 15px 5px 5px 5px;
 }
 
-.rightMenu span{
-	font-size: 24px;
+.rightMenu span {
+	font-size: 1.5em;
 	margin: 15px 0;
 	color: #9a8866;
 }
 
-.rightMenuContent{
+.rightMenuContent {
 	margin-top: 15px;
 	background-color: #0e0e0e;
 	padding: 20px;
@@ -122,14 +136,14 @@ body{
 	color: #e6e6e6;
 }
 
-.rightMenuContent h3{
-	font-size: 20px;
+.rightMenuContent h3 {
+	font-size: 1em;
 	font-weight: 400;
 	margin-bottom: 10px;
 }
 
-.rightMenuContent h4{
-	font-size: 16px;
+.rightMenuContent h4 {
+	font-size: 1em;
 	font-weight: 400;
 	margin-bottom: 5px;
 }
@@ -139,17 +153,18 @@ body{
 	border-bottom: 1px dotted;
 }
 
-.rightMenuContent h4 a:hover{
+.rightMenuContent h4 a:hover {
 	border: 0;
 }
 
-.graph{
+.graph {
 	height: 100%;
 	width: calc(100% - 302px);
 	display: inline-block;
 	border: 1px dashed #332f27;
 	border-radius: 5px;
 	overflow: hidden;
+	margin-top: 1em;
 }
 
 .checkbox {
@@ -177,17 +192,17 @@ body{
 	background-image: url(img/checkbox_checked.png);
 }
 
-.checkboxP{
+.checkboxP {
 	margin: 0 25px;
 	display: inline-block;
 }
 
-.checkboxes{
+.checkboxes {
 	padding-left: 30px;
 	text-align: center;
 }
 
-.questContent{
+.questContent {
 	height: calc(100% - 20px);
 	width: calc(100% - 20px);
 	border: 1px dashed #332f27;
@@ -196,14 +211,10 @@ body{
 	padding: 10px;
 }
 
-.questBox{
+.questBox {
 	width: 100%;
 	border-spacing: 0 10px;
 	margin-top: -10px;
-}
-
-.questBox{
-	color:;
 }
 
 .questBox a{
@@ -211,18 +222,18 @@ body{
 	border-bottom: 1px dotted;
 }
 
-.questBox a:hover{
+.questBox a:hover {
 	border: 0;
 }
 
-.questBox tr{
+.questBox tr {
 	vertical-align: middle;
 	padding: 10px;
 	border-radius: 5px;
 	background-color: #201e1a;
 }
 
-.questBox tr td{
+.questBox tr td {
 	text-align: center;
 	padding: 10px;
 }
@@ -230,52 +241,75 @@ body{
 .questBox tr td:first-child { border-top-left-radius: 5px; border-bottom-left-radius: 5px; }
 .questBox tr td:last-child { border-top-right-radius: 5px; border-bottom-right-radius: 5px;}
 
-.questBoxTitle{
+.questBoxTitle {
 	height: 30px;
 	color: #544f44;
 }
 
-.itemImageColumn{
+.itemImageColumn {
 	width: 270px;
 }
 
-.itemQuantity{
+.itemQuantity {
 	width: 200px;
 }
 
-.itemQuantityTd{
+.itemQuantityTd {
 	color: #e6e6e6;
-	font-size: 30px;
+	font-size: 2em;
 }
 
-.itemQuantityTd a{
+.itemQuantityTd a {
 	margin: 0 20px;
 	border: 0;
 }
 
-.itemQuest{
+.itemQuest {
 	width: 250px;
 }
 
-.questCompleted{
+.questCompleted {
 	opacity: 30%;
 }
 
-.made{
+.made {
 	color: #9a8866;
 	padding: 10px;
 	opacity: 70%;
 }
 
-.made a{
+.made a {
 	color: #9a8866;
 	border-bottom: 1px dotted;
 }
 
-.made a:hover{
+.made a:hover {
 	border: 0;
 }
 
 .vis-network:focus {
     outline: none;
+}
+
+.footer {
+	margin-top: 2em;
+	display: inline-block;
+	text-align: center;
+	padding: 5px 5px 5px 5px;
+	border: 1px dashed #332f27;
+	border-radius: 5px;
+}
+
+.footer h1 {
+	font-size: 1.5em;
+	margin: 15px 0;
+	color: #9a8866;
+}
+
+.footer p {
+	margin-top: 15px;
+	background-color: #0e0e0e;
+	padding: 20px;
+	color: #e6e6e6;
+	font-size: 1em;
 }
