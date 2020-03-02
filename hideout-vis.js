@@ -3,16 +3,32 @@ var colorGold = "#C2B7A3";
 var colorBlack = "#0e0e0e";
 var colorDarkTan = "#181714";
 
-// Defaults
-var locale = "ru-RU";
-var wikiBaseUrl = "https://escapefromtarkov-ru.gamepedia.com/";
-
 // Elements to mess with
 var infoBoxTitle = document.getElementById("infoBoxTitle");
 var infoBoxContent = document.getElementById("infoBoxContent");
 var ancestorCheckbox = document.getElementById("shouldShowAllAncestors");
 var container = document.getElementById("hideout-network");
 
+// Set locale according to browser laguage
+var locale = navigator.language;
+if (typeof navigator.language == "undefined") {
+  locale = navigator.systemLanguage; // Works for IE only
+}
+// And wiki URL
+var wikiBaseUrl = null;
+if (locale == 'ru-RU' || locale == 'ru_RU') {
+  wikiBaseUrl = "https://escapefromtarkov-ru.gamepedia.com/";
+} else {
+  wikiBaseUrl = "https://escapefromtarkov.gamepedia.com/";
+}
+// And initial infoBox content
+if (locale == 'ru-RU' || locale == 'ru_RU') {
+  infoBoxTitle.innerHTML = "Диаграмма убежища";
+  infoBoxContent.innerHTML = "<h3>Диаграмма интерактивна, попробуйте!</h3>";
+} else {
+  infoBoxTitle.innerHTML = "Hideout Graph";
+  infoBoxContent.innerHTML = "<h3>Scroll to zoom, click to activate nodes.</h3>";
+}
 
 ancestorCheckbox.addEventListener("change", event => {
   if (event.target.checked) {
@@ -443,7 +459,12 @@ var stationRequirements = [
 ];
 
 // create an array with nodes
-var nodes = new vis.DataSet(stations_ru_RU);
+var nodes = null;
+if (locale == "ru-RU" || locale == "ru_RU") {
+  nodes = new vis.DataSet(stations_ru_RU);
+} else {
+  nodes = new vis.DataSet(stations_en_US);
+}
 
 // ex: Stash 1 -> Stash 2
 // ex: Workshop req. for Intel Center
