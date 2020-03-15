@@ -1,3 +1,10 @@
+// movin on up
+if (top != self) {
+  console.log("It looks like the website you're visiting loading this site in a frame.");
+  console.log("Redirecting you to eft-graph.com...");
+  top.location.replace(self.location.href);
+}
+
 // colors
 var colorGold = "#C2B7A3";
 var colorBlack = "#0e0e0e";
