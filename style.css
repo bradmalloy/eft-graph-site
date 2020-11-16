@@ -60,7 +60,7 @@ body {
 	margin-right: 20px;
 	padding: 7px;
 	color: #9a8866;
-	font-size: 1em;
+	font-size: 1.5em;
 }
 
 .menuLink.disabled {
@@ -301,7 +301,7 @@ body {
 }
 
 .footer h1 {
-	font-size: 1.5em;
+	font-size: 2em;
 	margin: 15px 0;
 	color: #9a8866;
 }
@@ -311,7 +311,7 @@ body {
 	background-color: #0e0e0e;
 	padding: 20px;
 	color: #e6e6e6;
-	font-size: 1em;
+	font-size: 1.5em;
 }
 
 .about-info {
