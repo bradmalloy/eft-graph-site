@@ -81,7 +81,10 @@ var stations_ru_RU = [
         image: imgRoot + "generator.png",
         y: -50,
         requirements: {
-            items: [[100000, "Рубли"]]
+            items: [
+                [100000, "Рубли"],
+                [1, "Автомобильный Аккумулятор"]
+            ]
         }
     },
     {
