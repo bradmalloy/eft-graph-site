@@ -81,7 +81,10 @@ var stations_en_US = [
         image: imgRoot + "generator.png",
         y: -50,
         requirements: {
-            items: [[100000, "Roubles"]]
+            items: [
+                [100000, "Roubles"],
+                [1, "Car battery"]
+            ]
         }
     },
     {
