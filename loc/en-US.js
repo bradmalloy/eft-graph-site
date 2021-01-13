@@ -365,7 +365,8 @@ var stations_en_US = [
             items: [
                 [125000, "Roubles"],
                 [3, "Coffee Majaica"],
-                [3, "Sodium bicarbonate"]
+                [3, "Sodium bicarbonate"],
+                [2, "Smoked Chimney drain cleaner"]
             ],
             skills: [["Metabolism", 3]]
         }
@@ -387,7 +388,12 @@ var stations_en_US = [
         shape: "circularImage",
         image: imgRoot + "rest-space.png",
         requirements: {
-            items: [[35000, "Roubles"]],
+            items: [
+                [35000, "Roubles"],
+                [2, "Energy-saving lamp"],
+                [1, "DVD drive"],
+                [1, "Magnet"]
+            ],
             loyalty: [["Ragman", "LL2"]]
         }
     },
