@@ -134,7 +134,11 @@ var stations_ru_RU = [
         shape: "circularImage",
         image: imgRoot + "heating.png",
         requirements: {
-            items: [[50000, "Рубли"]],
+            items: [
+                [50000, "Рубли"],
+                [3, "Сухое горючее"],
+                [2, "Охотничьи спички"]
+            ],
             skills: [["Выносливость", 2]]
         }
     },
@@ -239,7 +243,10 @@ var stations_ru_RU = [
         shape: "circularImage",
         image: imgRoot + "lavatory.png",
         requirements: {
-            items: [[2000, "Рубли"]]
+            items: [
+                [2000, "Рубли"],
+                [1, "Рулон туалетной бумаги"]
+            ]
         }
     },
     {
@@ -571,7 +578,8 @@ var stations_ru_RU = [
         requirements: {
             items: [
                 [1, "Электродвигатель"],
-                [1, "Автомобильный аккумулятор"]
+                [1, "Автомобильный аккумулятор"],
+                [3, "Процессорный кулер"]
             ]
         }
     },
