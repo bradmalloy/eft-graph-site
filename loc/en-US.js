@@ -252,7 +252,8 @@ var stations_en_US = [
             items: [
                 [3, "Corrugated hoses"],
                 [5, "A pack of screws"],
-                [1, "Electric drill"]
+                [1, "Electric drill"],
+                [1, "KEKTAPE duct tape"]
             ]
         }
     },
@@ -615,7 +616,8 @@ var stations_en_US = [
             items: [
                 [6, "Corrugated hose"],
                 [2, "Electric motor"],
-                [2, "A set of tools"]
+                [2, "A set of tools"],
+                [1, "KEKTAPE duct tape"]
             ],
             loyalty: [["Jaeger", "LL2"]],
             skills: [["Attention", 3]]
