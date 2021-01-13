@@ -83,7 +83,7 @@ var stations_en_US = [
         requirements: {
             items: [
                 [100000, "Roubles"],
-                [1, "Car battery"]
+                [1, "Spark plug"]
             ]
         }
     },
