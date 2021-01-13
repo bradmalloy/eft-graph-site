@@ -462,6 +462,11 @@ var stationRequirements = [
     from: "Sta2",
     to: "W3",
     arrows: "to"
+  },
+  {
+    from: "V2",
+    to: "H2",
+    arrows: "to"
   }
 ];
 
