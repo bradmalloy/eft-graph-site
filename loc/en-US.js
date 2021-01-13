@@ -134,7 +134,11 @@ var stations_en_US = [
         shape: "circularImage",
         image: imgRoot + "heating.png",
         requirements: {
-            items: [[50000, "Roubles"]],
+            items: [
+                [50000, "Roubles"],
+                [3, "Dry fuel"],
+                [2, "Hunter matches"]
+            ],
             skills: [["Endurance", 2]]
         }
     },
@@ -239,7 +243,10 @@ var stations_en_US = [
         shape: "circularImage",
         image: imgRoot + "lavatory.png",
         requirements: {
-            items: [[2000, "Roubles"]]
+            items: [
+                [2000, "Roubles"],
+                [1, "Toilet paper"]
+            ]
         }
     },
     {
@@ -571,7 +578,8 @@ var stations_en_US = [
         requirements: {
             items: [
                 [1, "Electric motor"],
-                [1, "Car battery"]
+                [1, "Car battery"],
+                [3, "CPU fan"]
             ]
         }
     },
