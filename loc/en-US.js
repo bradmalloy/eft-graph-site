@@ -9,7 +9,11 @@ var stations_en_US = [
         shape: "circularImage",
         image: imgRoot + "air-filtration-unit.png",
         requirements: {
-            items: [[10000, "Dollars"]],
+            items: [
+                [10000, "Dollars"],
+                [2, "Air filter for gas mask"],
+                [1, "Military power filter"]
+            ],
             loyalty: [["Skier", "LL3"]]
         }
     },
@@ -286,7 +290,11 @@ var stations_en_US = [
         shape: "circularImage",
         image: imgRoot + "library.png",
         requirements: {
-            items: [[400000, "Roubles"]],
+            items: [
+                [400000, "Roubles"],
+                [2, "Chainlet"],
+                [1, "Horse figurine"]
+            ],
             skills: [["Memory", 8]]
         }
     },
@@ -429,10 +437,10 @@ var stations_en_US = [
         image: imgRoot + "scav-case.png",
         requirements: {
             items: [
-                [2, "Bronze lion"],
-                [2, "Gold skull ring"],
-                [6, "Golden neck chain"],
-                [3, "Roler"]
+                [4, "Bronze lion"],
+                [6, "Gold skull ring"],
+                [8, "Golden neck chain"],
+                [4, "Roler"]
             ]
         }
     },
@@ -496,10 +504,10 @@ var stations_en_US = [
         image: imgRoot + "solar-power.png",
         requirements: {
             items: [
-                [15000, "Euros"],
-                [4, "Military cable"],
-                [2, "Phased array element"],
-                [4, "Military power filter"]
+                [25000, "Euros"],
+                [8, "Military cable"],
+                [4, "Phased array element"],
+                [8, "Military power filter"]
             ],
             loyalty: [["Peacekeeper", "LL4"]]
         }
