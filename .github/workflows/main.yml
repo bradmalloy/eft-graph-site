@@ -37,3 +37,5 @@ jobs:
           git checkout public
           git add .
           git status
+          git commit -m "creating obfuscated commit thru GH action..."
+          git push
