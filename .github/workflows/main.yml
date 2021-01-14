@@ -33,6 +33,7 @@ jobs:
         
       - name: Push to public
         run: |
+          git fetch
           git checkout public
           git add .
           git status
