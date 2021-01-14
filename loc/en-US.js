@@ -317,8 +317,9 @@ var stations_en_US = [
         requirements: {
             items: [
                 [50000, "Roubles"],
-                [1, "Medical bloodset"],
-                [3, "Saline solution"]
+                [2, "Medical bloodset"],
+                [3, "Saline solution"],
+                [2, "Esmarch tourniquet"]
             ],
             loyalty: [["Therapist", "LL2"]],
             skills: [["Health", 2]]
@@ -406,7 +407,7 @@ var stations_en_US = [
         requirements: {
             items: [
                 [35000, "Roubles"],
-                [2, "Energy-saving lamp"],
+                [3, "Energy-saving lamp"],
                 [1, "DVD drive"],
                 [1, "Magnet"]
             ],
