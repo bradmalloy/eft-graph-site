@@ -25,8 +25,8 @@ var stations_en_US = [
         image: imgRoot + "bitcoin-farm.png",
         requirements: {
             items: [
-                [10, "CPU fan"],
-                [5, "Power supply unit"],
+                [15, "CPU fan"],
+                [10, "Power supply unit"],
                 [5, "Powercord"],
                 [1, "Electric drill"]
             ]
