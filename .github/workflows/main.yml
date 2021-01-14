@@ -29,9 +29,8 @@ jobs:
           
       - name: Merge latest master
         run: |
-          git fetch
+          git pull
           git checkout public
-          git merge master
 
       # Runs a set of commands using the runners shell
       - name: Obfuscate-Javascript
