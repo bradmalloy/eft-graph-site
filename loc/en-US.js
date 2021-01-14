@@ -41,9 +41,9 @@ var stations_en_US = [
         requirements: {
             items: [
                 [15, "CPU fan"],
-                [5, "Power supply unit"],
-                [5, "Printed circuit board"],
-                [2, "Phase control relay"]
+                [8, "Power supply unit"],
+                [10, "Printed circuit board"],
+                [5, "Phase control relay"]
             ]
         }
     },
@@ -56,9 +56,9 @@ var stations_en_US = [
         requirements: {
             items: [
                 [25, "CPU fan"],
-                [10, "Silicone tube"],
-                [1, "Electric motor"],
-                [2, "Pressure gauge"]
+                [15, "Silicone tube"],
+                [4, "Electric motor"],
+                [8, "Pressure gauge"]
             ]
         }
     },
