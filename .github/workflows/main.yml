@@ -26,15 +26,18 @@ jobs:
       - uses: actions/checkout@v2
         with:
           token: ${{ secrets.PAT }}
-
-      # Runs a set of commands using the runners shell
-      - name: Obfuscate-Javascript
-        uses: florrdv/JS-Obfuscator@v1.0.2
-        
-      - name: Fetch, add changes to public, check status
+          
+      - name: Fetch and checkout before obfuscate
         run: |
           git fetch
           git checkout public
+
+      # Runs a set of commands using the runners shell
+      - name: Obfuscate
+        uses: florrdv/JS-Obfuscator@v1.0.2
+        
+      - name: Stage changes
+        run: |
           git add .
           git status
       
