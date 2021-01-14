@@ -35,6 +35,7 @@ jobs:
         run: |
           git fetch
           git checkout public
+          git merge master
           git add .
           git status
           git config --global user.email "brad@malloy.io"
