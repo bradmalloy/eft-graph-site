@@ -27,17 +27,18 @@ jobs:
         with:
           token: ${{ secrets.PAT }}
           
-      - name: Merge latest master
+      - name: Check status
         run: |
-          git pull
-          git checkout public
+         git status
+         git log
 
       # Runs a set of commands using the runners shell
       - name: Obfuscate-Javascript
         uses: florrdv/JS-Obfuscator@v1.0.2
         
-      - name: Push to public
+      - name: Commit and push obfuscated to public
         run: |
+          git checkout public
           git add .
           git status
           git config --global user.email "brad@malloy.io"
