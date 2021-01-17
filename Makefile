@@ -1,4 +1,5 @@
 build:
+	mkdir public 
 	cp *.* public
 	npm i javascript-obfuscate
 	javascript-obfuscator hideout-vis.js --options-preset medium-obfuscation --output public/hideout-vis.js
