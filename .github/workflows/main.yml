@@ -29,6 +29,8 @@ jobs:
           
       - name: Fetch and checkout before obfuscate
         run: |
+          git config --global user.email "brad@malloy.io"
+          git config --global user.name "GitHub Actions"
           git fetch
           git checkout public
           git merge master --allow-unrelated-histories
@@ -52,8 +54,6 @@ jobs:
       
       - name: Configure, commit, and push
         run: |
-          git config --global user.email "brad@malloy.io"
-          git config --global user.name "GitHub Actions"
           git commit -m "Creating an obfuscated commit thru GH action..."
           git push
       
