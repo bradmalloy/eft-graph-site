@@ -31,6 +31,15 @@ jobs:
         run: |
           git fetch
           git checkout public
+          git merge master
+          
+      - name: Ensure JS files start out unobfuscated
+        run: |
+          git checkout HEAD hideout-vis.js
+          git checkout HEAD vis-network.min.js
+          git checkout HEAD loc/en-US.js
+          git checkout HEAD loc/ru-RU.js
+          cat hideout-vis.js
 
       # Runs a set of commands using the runners shell
       - name: Obfuscate
