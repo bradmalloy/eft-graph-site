@@ -31,7 +31,7 @@ jobs:
         run: |
           git fetch
           git checkout public
-          git merge master
+          git merge master --force
           
       - name: Ensure JS files start out unobfuscated
         run: |
