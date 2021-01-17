@@ -332,7 +332,7 @@ body {
 	font-size: 1em;
 }
 
-.about-info {
+.content-text {
 	margin-top: 2em;
 	border: 1px dashed #332f27;
 	border-radius: 5px;
@@ -340,24 +340,24 @@ body {
 	padding: 15px;
 }
 
-.about-info h1 {
+.content-text h1 {
 	font-size: 2.5em;
 	margin: 15px 0;
 	color: #9a8866;
 }
 
-.about-info h2 {
+.content-text h2 {
 	font-size: 2em;
 	margin: 15px 0;
 	color: #9a8866;
 }
 
-.about-info h3 {
+.content-text h3 {
 	font-size: 1.5em;
 	margin: 15px 0;
 	color: #9a8866;
 }
 
-.about-info a {
+.content-text a {
 	color: #9a8866;
 }
