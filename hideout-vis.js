@@ -10,9 +10,14 @@ var colorGold = "#C2B7A3";
 var colorBlack = "#0e0e0e";
 var colorDarkTan = "#181714";
 
+var totalCostShown = false;
+const showCostButtonText = "👀 Show Total Cost";
+const hideCostButtonText = "❌ Hide Total Cost";
+
 // Elements to mess with
 var infoBoxTitle = document.getElementById("infoBoxTitle");
 var infoBoxContent = document.getElementById("infoBoxContent");
+var cumulativeCostContent = document.getElementById("cumulativeCostContent");
 var ancestorCheckbox = document.getElementById("shouldShowAllAncestors");
 var container = document.getElementById("hideout-network");
 
@@ -36,7 +41,8 @@ if (locale == 'ru-RU' || locale == 'ru_RU') {
   infoBoxTitle.innerHTML = "Hideout Graph";
   infoBoxContent.innerHTML = "<h3>Scroll to zoom, click to activate nodes.</h3>";
 }
-
+// Settings checkbox - when toggled, clear and redraw
+// prevents the already-selected edges from staying
 ancestorCheckbox.addEventListener("change", event => {
   if (event.target.checked) {
     return;
@@ -540,6 +546,97 @@ function shouldShowAllAncestors() {
   return ancestorCheckbox.checked;
 }
 
+// Get all the ancestors of a given Node
+// nodeId is a string Id that we set in the loc files, ex: "Sta1" or "RS1"
+// Returns a list
+function getAllAncestors(rootNodeId, listOfChildren) {
+  let rootNode = network.body.nodes[rootNodeId];
+  if (!rootNode) {
+    return [];
+  }
+  if (!listOfChildren) {
+    listOfChildren = [];
+  }
+  rootNode.edges.forEach(edge => {
+    if (edge.toId == rootNodeId) {
+      let child = edge.from;
+      if (!child.options.completed) {
+        listOfChildren.push(child);
+        listOfChildren.push(getAllAncestors(child.id));
+      }
+    }
+  });
+  return listOfChildren.flat();
+}
+
+// Gets the cost of the node + all its ancestors
+function getCumulativeCost(nodeId) {
+  let allNodes = getAllAncestors(nodeId);
+  let totalRequirements = {
+    items: {},
+    skills: {},
+    loyalty: {}
+  }
+  allNodes.forEach(node => {
+    let reqs = node.options.requirements;
+    // Requirements are stored as an array, with the count of things needed 1st, and the item name 2nd
+    // ex: [15000, "Rubles"] or [1, "LEDX"]
+    if (reqs.items && reqs.items != []) {
+      reqs.items.forEach(requirementArray => {
+        let numberRequired = requirementArray[0];
+        let itemName = requirementArray[1];
+        let prevNumRequired = totalRequirements.items[itemName] || 0;
+        totalRequirements.items[itemName] = prevNumRequired + numberRequired;
+      });
+    }
+    // Skills are stored as ["Skill name", level]
+    if (reqs.skills && reqs.skills != []) {
+      reqs.skills.forEach(requirementArray => {
+        let skillName = requirementArray[0];
+        let levelRequired = requirementArray[1];
+        let prevLevelRequired = totalRequirements.skills[skillName] || 0;
+        totalRequirements.skills[skillName] = Math.max(levelRequired, prevLevelRequired);
+      });
+    }
+    // Loyalty requirements are stored as ["Trader name", "LLX"]
+    // Where X is an integer
+    if (reqs.loyalty && reqs.loyalty != []) {
+      reqs.loyalty.forEach(requirementArray => {
+        let traderName = requirementArray[0];
+        let levelRequiredString = requirementArray[1];
+        let numLevelRequired = parseInt(levelRequiredString.replace("LL",""));
+        let prevLevelRequired = totalRequirements.loyalty[traderName] || 0;
+        totalRequirements.loyalty[traderName] = Math.max(numLevelRequired, prevLevelRequired);
+      });
+    }
+  });
+  return totalRequirements;
+}
+
+function generateTotalCostHtml(totalCostObject) {
+  var output = '<div class="cumulativeCostContent">';
+  if (Object.entries(totalCostObject.items).length > 0) {
+    output += '<h3>Items</h3>';
+    for (const [key, value] of Object.entries(totalCostObject.items)) {
+      output += key + ': ' + value + '<br/>'
+    }
+  }
+  if (Object.entries(totalCostObject.skills).length > 0) {
+    output += '<h3>Skills</h3>';
+    for (const [key, value] of Object.entries(totalCostObject.skills)) {
+      output += key + ': ' + value + '<br/>'
+    }
+  }
+  if (Object.entries(totalCostObject.loyalty).length > 0) {
+    output += '<h3>Loyalty</h3>';
+    for (const [key, value] of Object.entries(totalCostObject.loyalty)) {
+      output += key + ': ' + value + '<br/>'
+    }
+  }
+  output += '</div>';
+  return output;
+}
+
 // get all the ancestors of the node (so we can highlight, etc)
 function hoverAllAncestors(nodeId) {
   var parent = network.body.nodes[nodeId];
@@ -664,6 +761,57 @@ function formatRequirements(requirementsObject) {
   return output + "</div>";
 }
 
+function handleTotalCostButton(nodeId) {
+  let showTotalCostButton = document.getElementById("showTotalCostButton");
+  if (!totalCostShown) {
+    cumulativeCostContent.innerHTML = generateTotalCostHtml(getCumulativeCost(nodeId));
+    showTotalCostButton.text = hideCostButtonText;
+    totalCostShown = true;
+  } else {
+    cumulativeCostContent.innerHTML = "";
+    showTotalCostButton.text = showCostButtonText;
+    totalCostShown = false;
+  }
+}
+
+function handleMarkAsDoneButton(nodeId) {
+  let nodeToMark = network.body.nodes[nodeId];
+  nodeToMark.options.completed = true;
+  nodeToMark.options.color.border = "#00cc00";
+  nodeToMark.options.color.highlight.border = "#00cc00";
+  nodeToMark.options.color.hover.border = "#00cc00";
+  nodeToMark.options.color.hover.background = "#00cc00";
+  nodeToMark.hover = false;
+  nodeToMark.edges.forEach(edge => {
+    if (edge.toId == nodeToMark.id) {
+      edge.options.color.color = "#00cc00";
+      edge.options.color.highlight = "#00cc00";
+      edge.options.color.hover = "#00cc00";
+      edge.hover = false;
+    }
+  });
+  let ancestors = getAllAncestors(nodeId);
+  ancestors.forEach(ancestorNode => {
+    handleMarkAsDoneButton(ancestorNode.id);
+  })
+  infoBoxTitle.innerHTML = '<del>' + nodeToMark.options.title + '</del>';
+  console.log("Marked " + nodeToMark.options.title + " as done.");
+}
+
+function generateMarkAsBuiltButton(nodeId) {
+  return '<div class="eft-button" onClick="handleMarkAsDoneButton(\''+nodeId+'\');">'
+  + '<a id="showTotalCostButton">'
+  + '✅ Mark As Done'
+  + '</a></div>';
+}
+
+function generateCumulativeCostsButton(nodeId) {
+  return '<div class="eft-button" onClick="handleTotalCostButton(\''+nodeId+'\');">'
+    + '<a id="showTotalCostButton">'
+    + '👀 Show Total Cost'
+    + '</a></div>';
+}
+
 // highlight on click
 network.on("click", function(params) {
   if (params.nodes && params.nodes.length > 0) {
@@ -675,8 +823,16 @@ network.on("click", function(params) {
       // highlight all ancestor nodes recursively
       hoverAllAncestors(node.id);
     }
-    infoBoxTitle.innerHTML = node.options.title;
-    infoBoxContent.innerHTML = formatRequirements(node.options.requirements);
+    cumulativeCostContent.innerHTML = "";
+    // If it's marked as done, show a strikethrough
+    if (node.options.completed) {
+      infoBoxTitle.innerHTML = '<del>' + node.options.title + '</del>';
+    } else {
+      infoBoxTitle.innerHTML = node.options.title;
+    }
+    infoBoxContent.innerHTML = formatRequirements(node.options.requirements) 
+      + generateCumulativeCostsButton(node.id)
+      + generateMarkAsBuiltButton(node.id);
   }
 });
 
