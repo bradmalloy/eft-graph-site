@@ -404,7 +404,7 @@ div.eft-button a {
 #totalCostWrapper {
 	color: #e6e6e6;
 	text-align: left;
-	background-color: black;
+	background-color: "#0e0e0e";
 	border-radius: 5px;
 	padding-left: 1em;
 }
