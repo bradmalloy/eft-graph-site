@@ -401,12 +401,16 @@ div.eft-button a {
 	text-decoration: none;
 }
 
-#cumulativeCostContent {
+#totalCostWrapper {
 	color: #e6e6e6;
 	text-align: left;
+	background-color: black;
+	border-radius: 5px;
+	padding-left: 1em;
 }
 
-#cumulativeCostContent h3 {
+#totalCostWrapper h3 {
 	margin-top: 1em;
 	margin-bottom: 0.5em;
+	padding-top: 0.5em;
 }

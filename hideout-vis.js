@@ -13,11 +13,13 @@ var colorDarkTan = "#181714";
 var totalCostShown = false;
 const showCostButtonText = "👀 Show Total Cost";
 const hideCostButtonText = "❌ Hide Total Cost";
+const markAsDoneButtonText = "✅ Mark As Done";
+const markUndoneButtonText = "❌ Undo";
 
 // Elements to mess with
 var infoBoxTitle = document.getElementById("infoBoxTitle");
 var infoBoxContent = document.getElementById("infoBoxContent");
-var cumulativeCostContent = document.getElementById("cumulativeCostContent");
+var cumulativeCostContent = document.getElementById("totalCostWrapper");
 var ancestorCheckbox = document.getElementById("shouldShowAllAncestors");
 var container = document.getElementById("hideout-network");
 
@@ -548,6 +550,7 @@ function shouldShowAllAncestors() {
 
 // Get all the ancestors of a given Node
 // nodeId is a string Id that we set in the loc files, ex: "Sta1" or "RS1"
+// Doesn't include the root node
 // Returns a list
 function getAllAncestors(rootNodeId, listOfChildren) {
   let rootNode = network.body.nodes[rootNodeId];
@@ -560,10 +563,8 @@ function getAllAncestors(rootNodeId, listOfChildren) {
   rootNode.edges.forEach(edge => {
     if (edge.toId == rootNodeId) {
       let child = edge.from;
-      if (!child.options.completed) {
-        listOfChildren.push(child);
-        listOfChildren.push(getAllAncestors(child.id));
-      }
+      listOfChildren.push(child);
+      listOfChildren.push(getAllAncestors(child.id));
     }
   });
   return listOfChildren.flat();
@@ -572,12 +573,17 @@ function getAllAncestors(rootNodeId, listOfChildren) {
 // Gets the cost of the node + all its ancestors
 function getCumulativeCost(nodeId) {
   let allNodes = getAllAncestors(nodeId);
+  allNodes.push(network.body.nodes[nodeId]);
   let totalRequirements = {
     items: {},
     skills: {},
     loyalty: {}
   }
   allNodes.forEach(node => {
+    // skip adding cost if it's listed as complete
+    if (node.options.completed) {
+      return;
+    }
     let reqs = node.options.requirements;
     // Requirements are stored as an array, with the count of things needed 1st, and the item name 2nd
     // ex: [15000, "Rubles"] or [1, "LEDX"]
@@ -632,6 +638,11 @@ function generateTotalCostHtml(totalCostObject) {
     for (const [key, value] of Object.entries(totalCostObject.loyalty)) {
       output += key + ': ' + value + '<br/>'
     }
+  }
+  if (Object.entries(totalCostObject.loyalty).length == 0 
+      && Object.entries(totalCostObject.skills).length == 0 
+      && Object.entries(totalCostObject.items).length == 0) {
+        output += '<h3>🙃 Nothing to see here...</h3>'
   }
   output += '</div>';
   return output;
@@ -774,35 +785,100 @@ function handleTotalCostButton(nodeId) {
   }
 }
 
+/**
+ * When they press the "mark as done" button, mark the node options.completed as true,
+ * and apply the graphical overlay to the node and its children
+ * @param {String} nodeId 
+ */
 function handleMarkAsDoneButton(nodeId) {
-  let nodeToMark = network.body.nodes[nodeId];
-  nodeToMark.options.completed = true;
-  nodeToMark.options.color.border = "#00cc00";
-  nodeToMark.options.color.highlight.border = "#00cc00";
-  nodeToMark.options.color.hover.border = "#00cc00";
-  nodeToMark.options.color.hover.background = "#00cc00";
-  nodeToMark.hover = false;
-  nodeToMark.edges.forEach(edge => {
-    if (edge.toId == nodeToMark.id) {
-      edge.options.color.color = "#00cc00";
-      edge.options.color.highlight = "#00cc00";
-      edge.options.color.hover = "#00cc00";
-      edge.hover = false;
-    }
-  });
-  let ancestors = getAllAncestors(nodeId);
-  ancestors.forEach(ancestorNode => {
-    handleMarkAsDoneButton(ancestorNode.id);
-  })
+  let node = network.body.nodes[nodeId];
+  // If it's already completed, we should undo the effects
+  if (node.options.completed) {
+    undoNodeCompleted(node);
+  } else {
+    // If it's not completed, do all the things.
+    markNodeCompleted(node);
+  }
+}
+
+function undoNodeCompleted(node) {
+  // Change the button text to "mark as done"
+  let markAsDoneButton = document.getElementById("markAsBuiltButton");
+  markAsDoneButton.text = markAsDoneButtonText;
+  infoBoxTitle.innerHTML = node.options.title;
+  node.options.completed = false;
+  visuallyIndicateNodeNotComplete(node);
+  network.redraw();
+  console.log("Node " + node.options.title + " no longer completed.");
+}
+
+function markNodeCompleted(nodeToMark) {
+  // Change the button text to "undo"
+  let markAsDoneButton = document.getElementById("markAsBuiltButton");
+  markAsDoneButton.text = markUndoneButtonText;
+  // Stikeout the title
   infoBoxTitle.innerHTML = '<del>' + nodeToMark.options.title + '</del>';
+  // Apply visual changes
+  visuallyIndicateNodeComplete(nodeToMark);
+  network.redraw();
+  // Also store the "completed" status
+  nodeToMark.options.completed = true;
+  // Get all the ancestors & repeat this for them
+  let ancestors = getAllAncestors(nodeToMark.id);
+  ancestors.forEach(ancestorNode => {
+    if (!ancestorNode.completed) {
+      markNodeCompleted(ancestorNode);
+    }
+  })
   console.log("Marked " + nodeToMark.options.title + " as done.");
 }
 
-function generateMarkAsBuiltButton(nodeId) {
-  return '<div class="eft-button" onClick="handleMarkAsDoneButton(\''+nodeId+'\');">'
-  + '<a id="showTotalCostButton">'
-  + '✅ Mark As Done'
-  + '</a></div>';
+function visuallyIndicateNodeComplete(node) {
+  let options = {
+    opacity: 0.25,
+    color: {
+      border: "#00cc00",
+      hover: {
+        border: "#00cc00"
+      },
+      highlight: {
+        border: "#00cc00"
+      }
+    },
+    label: "✅" + node.options.title
+  }
+  network.body.nodes[node.id].setOptions(options);
+}
+
+function visuallyIndicateNodeNotComplete(node) {
+  let options = {
+    opacity: 1,
+    color: {
+      border: "#cc0000",
+      hover: {
+        border: "#cc0000"
+      },
+      highlight: {
+        border: "#cc0000"
+      }
+    },
+    label: node.options.label.replace("✅", "") // removes the "[Done] "
+  }
+  network.body.nodes[node.id].setOptions(options);
+}
+
+// If the node is done, render an "undo" button, otherwise render a "mark as done"
+function generateMarkAsBuiltButton(node) {
+  let nodeId = node.id;
+  let output = '<div class="eft-button" onClick="handleMarkAsDoneButton(\''+nodeId+'\');">'
+  + '<a id="markAsBuiltButton">';
+  if (node.options.completed) {
+    output += markUndoneButtonText;
+  } else {
+    output += markAsDoneButtonText;
+  }
+  output += '</a></div>';
+  return output;
 }
 
 function generateCumulativeCostsButton(nodeId) {
@@ -832,7 +908,7 @@ network.on("click", function(params) {
     }
     infoBoxContent.innerHTML = formatRequirements(node.options.requirements) 
       + generateCumulativeCostsButton(node.id)
-      + generateMarkAsBuiltButton(node.id);
+      + generateMarkAsBuiltButton(node);
   }
 });
 
