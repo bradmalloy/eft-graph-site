@@ -809,15 +809,21 @@ function undoNodeCompleted(node) {
   node.options.completed = false;
   visuallyIndicateNodeNotComplete(node);
   network.redraw();
+  // Remove the item from local storage
+  persistNodeAsIncomplete(node.id);
   console.log("Node " + node.options.title + " no longer completed.");
 }
 
 function markNodeCompleted(nodeToMark) {
   // Change the button text to "undo"
   let markAsDoneButton = document.getElementById("markAsBuiltButton");
-  markAsDoneButton.text = markUndoneButtonText;
+  if (markAsDoneButton) {
+    markAsDoneButton.text = markUndoneButtonText;
+  }
   // Stikeout the title
-  infoBoxTitle.innerHTML = '<del>' + nodeToMark.options.title + '</del>';
+  if (infoBoxTitle) {
+    infoBoxTitle.innerHTML = '<del>' + nodeToMark.options.title + '</del>';
+  }
   // Apply visual changes
   visuallyIndicateNodeComplete(nodeToMark);
   network.redraw();
@@ -830,6 +836,8 @@ function markNodeCompleted(nodeToMark) {
       markNodeCompleted(ancestorNode);
     }
   })
+  // Store the "done" status in local storage
+  persistNodeAsDone(nodeToMark.id);
   console.log("Marked " + nodeToMark.options.title + " as done.");
 }
 
@@ -915,7 +923,10 @@ network.on("click", function(params) {
 // Since scaling isn't working on Chrome, in place of a fixed size
 network.once("beforeDrawing", () => {
   container.style.height = "85vh";
+  loadModuleCompleteStatus(network.body.nodes);
 });
+
+// Load module done status after network is done loading
 
 // show or hide the roadmap
 function toggleRoadmap() {
@@ -953,4 +964,24 @@ function switchToRu() {
   network.setData(newData);
   infoBoxTitle.innerHTML = "Диаграмма убежища";
   infoBoxContent.innerHTML = "<h3>Диаграмма интерактивна, попробуйте!</h3>";
+}
+
+function persistNodeAsDone(nodeId) {
+  window.localStorage.setItem(nodeId, "done");
+}
+
+function persistNodeAsIncomplete(nodeId) {
+  window.localStorage.removeItem(nodeId);
+}
+
+function loadModuleCompleteStatus(listOfNodes) {
+  console.log("Loading module completeness from local browser storage...");
+  Object.entries(listOfNodes).forEach(node => {
+    // ["AFU1", {id: "AFU1", title: "Air Filtering Unit", image: "...", ...}] 
+    let nodeId = node[0];
+    let doneString = window.localStorage.getItem(nodeId);
+    if (doneString && doneString == "done") {
+      markNodeCompleted(network.body.nodes[nodeId])
+    }
+  })
 }
