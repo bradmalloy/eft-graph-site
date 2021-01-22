@@ -778,7 +778,7 @@ function handleTotalCostButton(nodeId) {
     showTotalCostButton.text = showCostButtonText;
     totalCostShown = false;
   }
-  gtag('send', 'event', 'totalCostButton', 'click');
+  gtag('event', 'interaction', {'event_category': 'totalCostButton', 'event_label': 'click', 'value': 1});
 }
 
 /**
@@ -795,7 +795,7 @@ function handleMarkAsDoneButton(nodeId) {
     // If it's not completed, do all the things.
     markNodeCompleted(node);
   }
-  gtag('send', 'event', 'markAsDoneButton', 'click');
+  gtag('event', 'interaction', {'event_category': 'markAsDoneButton', 'event_label': 'click', 'value': 1});
 }
 
 function undoNodeCompleted(node) {
