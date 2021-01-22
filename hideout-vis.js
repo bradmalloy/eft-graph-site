@@ -442,11 +442,6 @@ var stationRequirements = [
     arrows: "to"
   },
   {
-    from: "IC3",
-    to: "Sta4",
-    arrows: "to"
-  },
-  {
     from: "G2",
     to: "V3",
     arrows: "to"
