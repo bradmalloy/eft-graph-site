@@ -1,6 +1,8 @@
 // Uses tarkov-tools and graphQL to update our data based on the latest from the game
 
-import { request, gql } from 'graphql-request'
+const graphqlLib = require('graphql-request');
+const gql = graphqlLib.gql;
+const request = graphqlLib.request;
 const fs = require('fs');
 
 const query = gql`
