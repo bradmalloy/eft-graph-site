@@ -1,0 +1,7 @@
+{
+  "name": "eft-graph-site",
+  "version": "1.0.0",
+  "dependencies": {
+    "graphql-request": "^3.7.0"
+  }
+}

@@ -1,0 +1,34 @@
+// Uses tarkov-tools and graphQL to update our data based on the latest from the game
+
+import { request, gql } from 'graphql-request'
+const fs = require('fs');
+
+const query = gql`
+{
+  hideoutModules {
+    id
+    name
+    level
+    itemRequirements {
+      item {
+        name
+        avg24hPrice
+      }
+      count
+      quantity
+    }
+  }
+}
+`
+
+request('https://tarkov-tools.com/graphql', query).then((data) => console.log(data))
+writeItemRequirementsToFile();
+
+function writeItemRequirementsToFile() {
+    fs.writeFileSync('test.txt', "testing file writing and commit in gh actions", err => {
+        if (err) {
+            console.error(err);
+            return;
+        }
+    });
+}

@@ -1,7 +1,7 @@
 // locations
-var imgRoot = "./img/";
+const imgRoot = "./img/";
 
-var stations_en_US = [
+const stations_en_US = [
     {
         id: "AFU1",
         label: "Air Filtering Unit",
