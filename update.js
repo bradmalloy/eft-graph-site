@@ -23,7 +23,12 @@ const query = gql`
 }
 `
 
-request('https://tarkov-tools.com/graphql', query).then((data) => console.log(data))
+request('https://tarkov-tools.com/graphql', query)
+    .then((data) => {
+        console.log("Got a response from tarkov-tools!")
+        // hideoutModules: [{}]
+        // schema matches query above
+    })
 writeItemRequirementsToFile();
 
 function writeItemRequirementsToFile() {
