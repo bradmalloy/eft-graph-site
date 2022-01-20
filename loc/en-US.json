@@ -1,0 +1,1536 @@
+[
+  {
+    "id": "AFU1",
+    "tarkovToolsId": 0,
+    "label": "Air Filtering Unit",
+    "title": "Air Filtering Unit",
+    "shape": "circularImage",
+    "image": "./img/air-filtration-unit.png",
+    "requirements": {
+      "items": [
+        [
+          25000,
+          "Dollars"
+        ],
+        [
+          5,
+          "Military power filter"
+        ],
+        [
+          5,
+          "Gas mask air filter"
+        ],
+        [
+          3,
+          "Military corrugated tube"
+        ]
+      ],
+      "loyalty": [
+        [
+          "Skier",
+          "LL3"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "BF1",
+    "tarkovToolsId": 1,
+    "label": "Level 1",
+    "title": "Bitcoin Farm 1",
+    "shape": "circularImage",
+    "image": "./img/bitcoin-farm.png",
+    "requirements": {
+      "items": [
+        [
+          15,
+          "CPU Fan"
+        ],
+        [
+          10,
+          "Power supply unit"
+        ],
+        [
+          10,
+          "Power cord"
+        ],
+        [
+          1,
+          "VPX Flash Storage Module"
+        ],
+        [
+          5,
+          "T-Shaped plug"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "BF2",
+    "tarkovToolsId": 2,
+    "label": "Level 2",
+    "title": "Bitcoin Farm 2",
+    "shape": "circularImage",
+    "image": "./img/bitcoin-farm.png",
+    "requirements": {
+      "items": [
+        [
+          15,
+          "CPU Fan"
+        ],
+        [
+          10,
+          "Power supply unit"
+        ],
+        [
+          15,
+          "Printed circuit board"
+        ],
+        [
+          5,
+          "Phase control relay"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "BF3",
+    "tarkovToolsId": 3,
+    "label": "Level 3",
+    "title": "Bitcoin Farm 3",
+    "shape": "circularImage",
+    "image": "./img/bitcoin-farm.png",
+    "requirements": {
+      "items": [
+        [
+          25,
+          "CPU Fan"
+        ],
+        [
+          15,
+          "Silicone tube"
+        ],
+        [
+          10,
+          "Electric motor"
+        ],
+        [
+          10,
+          "Pressure gauge"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "BG1",
+    "tarkovToolsId": 4,
+    "label": "Level 1",
+    "title": "Booze Generator",
+    "shape": "circularImage",
+    "image": "./img/booze-generator.png",
+    "requirements": {
+      "items": [
+        [
+          5,
+          "Corrugated hose"
+        ],
+        [
+          4,
+          "Silicone tube"
+        ],
+        [
+          2,
+          "Analog thermometer"
+        ],
+        [
+          2,
+          "Pressure gauge"
+        ],
+        [
+          3,
+          "Radiator helix"
+        ],
+        [
+          1,
+          "Pipe grip wrench"
+        ],
+        [
+          2,
+          "Metal spare parts"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "G1",
+    "tarkovToolsId": 6,
+    "label": "Level 1",
+    "title": "Generator 1",
+    "shape": "circularImage",
+    "image": "./img/generator.png",
+    "y": -50,
+    "requirements": {
+      "items": [
+        [
+          100000,
+          "Roubles"
+        ],
+        [
+          1,
+          "Spark plug"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "G2",
+    "tarkovToolsId": 7,
+    "label": "Level 2",
+    "title": "Generator 2",
+    "shape": "circularImage",
+    "image": "./img/generator.png",
+    "requirements": {
+      "items": [
+        [
+          5,
+          "Phase control relay"
+        ],
+        [
+          1,
+          "Electric motor"
+        ],
+        [
+          15,
+          "Bundle of wires"
+        ],
+        [
+          1,
+          "Bulbex cable cutter"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "G3",
+    "tarkovToolsId": 8,
+    "label": "Level 3",
+    "title": "Generator 3",
+    "shape": "circularImage",
+    "image": "./img/generator.png",
+    "requirements": {
+      "items": [
+        [
+          6,
+          "Phase control relay"
+        ],
+        [
+          3,
+          "Electric motor"
+        ],
+        [
+          10,
+          "Spark plug"
+        ],
+        [
+          5,
+          "Power supply unit"
+        ],
+        [
+          7,
+          "Metal spare parts"
+        ]
+      ],
+      "loyalty": [
+        [
+          "Mechanic",
+          "LL3"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "H1",
+    "tarkovToolsId": 9,
+    "label": "Level 1",
+    "title": "Heater 1",
+    "shape": "circularImage",
+    "image": "./img/heating.png",
+    "requirements": {
+      "items": [
+        [
+          25000,
+          "Roubles"
+        ],
+        [
+          2,
+          "Classic matches"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "H2",
+    "tarkovToolsId": 10,
+    "label": "Level 2",
+    "title": "Heating 2",
+    "shape": "circularImage",
+    "image": "./img/heating.png",
+    "requirements": {
+      "items": [
+        [
+          50000,
+          "Roubles"
+        ],
+        [
+          3,
+          "Dry fuel"
+        ],
+        [
+          2,
+          "Hunting matches"
+        ],
+        [
+          3,
+          "Crickent lighter"
+        ]
+      ],
+      "skills": [
+        [
+          "Endurance",
+          2
+        ]
+      ]
+    }
+  },
+  {
+    "id": "H3",
+    "tarkovToolsId": 11,
+    "label": "Level 3",
+    "title": "Heating 3",
+    "shape": "circularImage",
+    "image": "./img/heating.png",
+    "requirements": {
+      "items": [
+        [
+          8,
+          "Radiator helix"
+        ],
+        [
+          8,
+          "Bundle of wires"
+        ],
+        [
+          4,
+          "Phase control relay"
+        ],
+        [
+          2,
+          "Military corrugated tube"
+        ]
+      ],
+      "loyalty": [
+        [
+          "Ragman",
+          "LL2"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "I1",
+    "tarkovToolsId": 12,
+    "label": "Level 1",
+    "title": "Illumination 1",
+    "shape": "circularImage",
+    "image": "./img/illumination.png",
+    "requirements": {
+      "items": [
+        [
+          10000,
+          "Roubles"
+        ],
+        [
+          1,
+          "Crickent lighter"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "I2",
+    "tarkovToolsId": 13,
+    "label": "Level 2",
+    "title": "Illumination 2",
+    "shape": "circularImage",
+    "image": "./img/illumination.png",
+    "requirements": {
+      "items": [
+        [
+          14,
+          "Light bulb"
+        ],
+        [
+          5,
+          "Bundle of wires"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "I3",
+    "tarkovToolsId": 14,
+    "label": "Level 3",
+    "title": "Illumination 3",
+    "shape": "circularImage",
+    "image": "./img/illumination.png",
+    "requirements": {
+      "items": [
+        [
+          7,
+          "Capacitors"
+        ],
+        [
+          6,
+          "Bundle of wires"
+        ],
+        [
+          12,
+          "Energy-saving lamp"
+        ],
+        [
+          50000,
+          "Roubles"
+        ]
+      ],
+      "loyalty": [
+        [
+          "Mechanic",
+          "LL2"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "IC1",
+    "tarkovToolsId": 15,
+    "label": "Level 1",
+    "title": "Intel Center 1",
+    "shape": "circularImage",
+    "image": "./img/intelligence-center.png",
+    "requirements": {
+      "items": [
+        [
+          1,
+          "Intelligence folder"
+        ],
+        [
+          1,
+          "Diary"
+        ],
+        [
+          1,
+          "Factory plan map"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "IC2",
+    "tarkovToolsId": 16,
+    "label": "Level 2",
+    "title": "Intel Center 2",
+    "shape": "circularImage",
+    "image": "./img/intelligence-center.png",
+    "requirements": {
+      "items": [
+        [
+          3,
+          "Intelligence folder"
+        ],
+        [
+          3,
+          "Secure Flash drive"
+        ],
+        [
+          4,
+          "Power cord"
+        ],
+        [
+          4,
+          "Damaged hard drive"
+        ]
+      ],
+      "loyalty": [
+        [
+          "Mechanic",
+          "LL2"
+        ]
+      ],
+      "skills": [
+        [
+          "Attention",
+          3
+        ]
+      ]
+    }
+  },
+  {
+    "id": "IC3",
+    "tarkovToolsId": 17,
+    "label": "Level 3",
+    "title": "Intel Center 3",
+    "shape": "circularImage",
+    "image": "./img/intelligence-center.png",
+    "requirements": {
+      "items": [
+        [
+          2,
+          "Military COFDM wireless Signal Transmitter"
+        ],
+        [
+          2,
+          "VPX Flash Storage Module"
+        ],
+        [
+          1,
+          "Gas analyzer"
+        ],
+        [
+          4,
+          "Military cable"
+        ],
+        [
+          1,
+          "Secured magnetic tape cassette"
+        ]
+      ],
+      "loyalty": [
+        [
+          "Prapor",
+          "LL3"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "L1",
+    "tarkovToolsId": 18,
+    "label": "Level 1",
+    "title": "Lavatory 1",
+    "shape": "circularImage",
+    "image": "./img/lavatory.png",
+    "requirements": {
+      "items": [
+        [
+          2000,
+          "Roubles"
+        ],
+        [
+          1,
+          "Toilet paper"
+        ],
+        [
+          1,
+          "Toothpaste"
+        ],
+        [
+          1,
+          "Soap"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "L2",
+    "tarkovToolsId": 19,
+    "label": "Level 2",
+    "title": "Lavatory 2",
+    "shape": "circularImage",
+    "image": "./img/lavatory.png",
+    "requirements": {
+      "items": [
+        [
+          3,
+          "Corrugated hose"
+        ],
+        [
+          5,
+          "Pack of screws"
+        ],
+        [
+          1,
+          "Electric drill"
+        ],
+        [
+          1,
+          "KEKTAPE duct tape"
+        ],
+        [
+          1,
+          "Sewing kit"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "L3",
+    "tarkovToolsId": 20,
+    "label": "Level 3",
+    "title": "Lavatory 3",
+    "shape": "circularImage",
+    "image": "./img/lavatory.png",
+    "requirements": {
+      "items": [
+        [
+          6,
+          "Corrugated hose"
+        ],
+        [
+          2,
+          "Pressure gauge"
+        ],
+        [
+          1,
+          "Toolset"
+        ],
+        [
+          3,
+          "Xenomorph sealing foam"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "LIB1",
+    "tarkovToolsId": 21,
+    "label": "Library",
+    "title": "Library",
+    "shape": "circularImage",
+    "image": "./img/library.png",
+    "requirements": {
+      "items": [
+        [
+          400000,
+          "Roubles"
+        ],
+        [
+          2,
+          "Chainlet"
+        ],
+        [
+          1,
+          "Horse figurine"
+        ],
+        [
+          5,
+          "Tech manual"
+        ],
+        [
+          2,
+          "Diary"
+        ],
+        [
+          2,
+          "Slim diary"
+        ]
+      ],
+      "skills": [
+        [
+          "Memory",
+          8
+        ]
+      ]
+    }
+  },
+  {
+    "id": "M1",
+    "tarkovToolsId": 22,
+    "label": "Level 1",
+    "title": "Medstation 1",
+    "shape": "circularImage",
+    "image": "./img/medstation.png",
+    "requirements": {
+      "items": [
+        [
+          50000,
+          "Roubles"
+        ],
+        [
+          1,
+          "Disposable syringe"
+        ],
+        [
+          1,
+          "Pile of meds"
+        ],
+        [
+          2,
+          "Aseptic bandage"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "M2",
+    "tarkovToolsId": 23,
+    "label": "Level 2",
+    "title": "Medstation 2",
+    "shape": "circularImage",
+    "image": "./img/medstation.png",
+    "requirements": {
+      "items": [
+        [
+          5,
+          "Esmarch tourniquet"
+        ],
+        [
+          2,
+          "Medical bloodset"
+        ],
+        [
+          3,
+          "Bottle of saline solution"
+        ],
+        [
+          150000,
+          "Roubles"
+        ],
+        [
+          3,
+          "Medical tools"
+        ]
+      ],
+      "loyalty": [
+        [
+          "Therapist",
+          "LL2"
+        ]
+      ],
+      "skills": [
+        [
+          "Health",
+          2
+        ]
+      ]
+    }
+  },
+  {
+    "id": "M3",
+    "tarkovToolsId": 24,
+    "label": "Level 3",
+    "title": "Medstation 3",
+    "shape": "circularImage",
+    "image": "./img/medstation.png",
+    "requirements": {
+      "items": [
+        [
+          1,
+          "LEDX Skin Transilluminator"
+        ],
+        [
+          1,
+          "Ophthalmoscope"
+        ],
+        [
+          4,
+          "Bottle of saline solution"
+        ],
+        [
+          500000,
+          "Roubles"
+        ]
+      ],
+      "loyalty": [
+        [
+          "Therapist",
+          "LL3"
+        ],
+        [
+          "Skier",
+          "LL2"
+        ]
+      ],
+      "skills": [
+        [
+          "Vitality",
+          3
+        ]
+      ]
+    }
+  },
+  {
+    "id": "NU1",
+    "tarkovToolsId": 25,
+    "label": "Level 1",
+    "title": "Nutrition Unit 1",
+    "shape": "circularImage",
+    "image": "./img/nutrition-unit.png",
+    "requirements": {
+      "items": [
+        [
+          2,
+          "Phase control relay"
+        ],
+        [
+          1,
+          "Power cord"
+        ],
+        [
+          25000,
+          "Roubles"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "NU2",
+    "tarkovToolsId": 26,
+    "label": "Level 2",
+    "title": "Nutrition Unit 2",
+    "shape": "circularImage",
+    "image": "./img/nutrition-unit.png",
+    "requirements": {
+      "items": [
+        [
+          1,
+          "Phase control relay"
+        ],
+        [
+          4,
+          "Wrench"
+        ],
+        [
+          2,
+          "Corrugated hose"
+        ],
+        [
+          2,
+          "Alkaline cleaner for heat exchangers"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "NU3",
+    "tarkovToolsId": 27,
+    "label": "Level 3",
+    "title": "Nutrition Unit 3",
+    "shape": "circularImage",
+    "image": "./img/nutrition-unit.png",
+    "requirements": {
+      "items": [
+        [
+          2,
+          "Smoked Chimney drain cleaner"
+        ],
+        [
+          3,
+          "Pack of sodium bicarbonate"
+        ],
+        [
+          3,
+          "Can of Majaica coffee beans"
+        ],
+        [
+          125000,
+          "Roubles"
+        ]
+      ],
+      "skills": [
+        [
+          "Metabolism",
+          3
+        ]
+      ]
+    }
+  },
+  {
+    "id": "RS1",
+    "tarkovToolsId": 28,
+    "label": "Level 1",
+    "title": "Rest Space 1",
+    "shape": "circularImage",
+    "image": "./img/rest-space.png",
+    "requirements": {
+      "items": [
+        [
+          10000,
+          "Roubles"
+        ],
+        [
+          1,
+          "Duct tape"
+        ],
+        [
+          1,
+          "Classic matches"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "RS2",
+    "tarkovToolsId": 29,
+    "label": "Level 2",
+    "title": "Rest Space 2",
+    "shape": "circularImage",
+    "image": "./img/rest-space.png",
+    "requirements": {
+      "items": [
+        [
+          1,
+          "Magnet"
+        ],
+        [
+          1,
+          "DVD drive"
+        ],
+        [
+          3,
+          "Energy-saving lamp"
+        ],
+        [
+          35000,
+          "Roubles"
+        ]
+      ],
+      "loyalty": [
+        [
+          "Ragman",
+          "LL2"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "RS3",
+    "tarkovToolsId": 30,
+    "label": "Level 3",
+    "title": "Rest Space 3",
+    "shape": "circularImage",
+    "image": "./img/rest-space.png",
+    "requirements": {
+      "items": [
+        [
+          4,
+          "Power cord"
+        ],
+        [
+          5,
+          "Capacitors"
+        ],
+        [
+          7,
+          "Bundle of wires"
+        ],
+        [
+          5,
+          "GreenBat lithium battery"
+        ]
+      ],
+      "loyalty": [
+        [
+          "Skier",
+          "LL3"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "SC1",
+    "tarkovToolsId": 31,
+    "label": "Scav Case",
+    "title": "Scav Case",
+    "shape": "circularImage",
+    "image": "./img/scav-case.png",
+    "requirements": {
+      "items": [
+        [
+          4,
+          "Bronze lion"
+        ],
+        [
+          6,
+          "Gold skull ring"
+        ],
+        [
+          8,
+          "Golden neck chain"
+        ],
+        [
+          4,
+          "Roler Submariner gold wrist watch"
+        ],
+        [
+          3,
+          "\"Fierce Hatchling\" moonshine"
+        ],
+        [
+          1,
+          "Lucky Scav Junk box"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "Sec1",
+    "tarkovToolsId": 32,
+    "label": "Level 1",
+    "title": "Security 1",
+    "shape": "circularImage",
+    "image": "./img/security.png",
+    "requirements": {
+      "items": [
+        [
+          20000,
+          "Roubles"
+        ],
+        [
+          1,
+          "Construction measuring tape"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "Sec2",
+    "tarkovToolsId": 33,
+    "label": "Level 2",
+    "title": "Security 2",
+    "shape": "circularImage",
+    "image": "./img/security.png",
+    "requirements": {
+      "items": [
+        [
+          45000,
+          "Roubles"
+        ],
+        [
+          1,
+          "Pliers Elite"
+        ],
+        [
+          1,
+          "WD-40 (100ml)"
+        ],
+        [
+          1,
+          "TP-200 TNT brick"
+        ]
+      ],
+      "skills": [
+        [
+          "Endurance",
+          2
+        ]
+      ]
+    }
+  },
+  {
+    "id": "Sec3",
+    "tarkovToolsId": 34,
+    "label": "Level 3",
+    "title": "Security 3",
+    "shape": "circularImage",
+    "image": "./img/security.png",
+    "requirements": {
+      "items": [
+        [
+          2,
+          "Working LCD"
+        ],
+        [
+          4,
+          "Bundle of wires"
+        ],
+        [
+          8,
+          "NIXXOR lens"
+        ],
+        [
+          1,
+          "SSD drive"
+        ]
+      ],
+      "loyalty": [
+        [
+          "Mechanic",
+          "LL2"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "SR1",
+    "tarkovToolsId": 35,
+    "label": "Range",
+    "title": "Shooting Range",
+    "shape": "circularImage",
+    "image": "./img/shooting-range.png",
+    "requirements": {
+      "items": [
+        [
+          4,
+          "Pack of nails"
+        ],
+        [
+          5,
+          "Screw nuts"
+        ],
+        [
+          5,
+          "Bolts"
+        ],
+        [
+          3,
+          "Duct tape"
+        ],
+        [
+          2,
+          "Pack of screws"
+        ],
+        [
+          2,
+          "Metal spare parts"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "SP1",
+    "tarkovToolsId": 36,
+    "label": "Solar Power",
+    "title": "Solar Power",
+    "shape": "circularImage",
+    "image": "./img/solar-power.png",
+    "requirements": {
+      "items": [
+        [
+          10,
+          "Military cable"
+        ],
+        [
+          4,
+          "Phased array element"
+        ],
+        [
+          10,
+          "Military power filter"
+        ],
+        [
+          75000,
+          "Euros"
+        ],
+        [
+          3,
+          "Working LCD"
+        ]
+      ],
+      "loyalty": [
+        [
+          "Peacekeeper",
+          "LL4"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "Sta1",
+    "tarkovToolsId": 37,
+    "label": "Level 1",
+    "title": "Stash 1",
+    "shape": "circularImage",
+    "image": "./img/stash.png",
+    "requirements": {
+      "items": []
+    }
+  },
+  {
+    "id": "Sta2",
+    "tarkovToolsId": 38,
+    "label": "Level 2",
+    "title": "Stash 2",
+    "shape": "circularImage",
+    "image": "./img/stash.png",
+    "requirements": {
+      "items": [
+        [
+          1,
+          "Hand drill"
+        ],
+        [
+          10,
+          "Pack of screws"
+        ],
+        [
+          4,
+          "WD-40 (100ml)"
+        ],
+        [
+          5,
+          "Pack of nails"
+        ],
+        [
+          2500000,
+          "Roubles"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "Sta3",
+    "tarkovToolsId": 39,
+    "label": "Level 3",
+    "title": "Stash 3",
+    "shape": "circularImage",
+    "image": "./img/stash.png",
+    "requirements": {
+      "items": [
+        [
+          2,
+          "Electric drill"
+        ],
+        [
+          15,
+          "Pack of screws"
+        ],
+        [
+          7,
+          "Pack of nails"
+        ],
+        [
+          8500000,
+          "Roubles"
+        ]
+      ],
+      "loyalty": [
+        [
+          "Prapor",
+          "LL3"
+        ],
+        [
+          "Ragman",
+          "LL3"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "Sta4",
+    "tarkovToolsId": 40,
+    "label": "Level 4",
+    "title": "Stash 4",
+    "shape": "circularImage",
+    "image": "./img/stash.png",
+    "requirements": {
+      "items": [
+        [
+          200000,
+          "Euros"
+        ],
+        [
+          10,
+          "Screw nuts"
+        ],
+        [
+          10,
+          "Bolts"
+        ],
+        [
+          5,
+          "Shustrilo sealing foam"
+        ],
+        [
+          2,
+          "Ratchet wrench"
+        ]
+      ],
+      "loyalty": [
+        [
+          "Peacekeeper",
+          "LL3"
+        ],
+        [
+          "Ragman",
+          "LL4"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "V1",
+    "tarkovToolsId": 41,
+    "label": "Level 1",
+    "title": "Vents 1",
+    "shape": "circularImage",
+    "image": "./img/vents.png",
+    "requirements": {
+      "items": [
+        [
+          25000,
+          "Roubles"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "V2",
+    "tarkovToolsId": 42,
+    "label": "Level 2",
+    "title": "Vents 2",
+    "shape": "circularImage",
+    "image": "./img/vents.png",
+    "requirements": {
+      "items": [
+        [
+          1,
+          "Electric motor"
+        ],
+        [
+          1,
+          "Car battery"
+        ],
+        [
+          3,
+          "CPU Fan"
+        ],
+        [
+          2,
+          "Metal spare parts"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "V3",
+    "tarkovToolsId": 43,
+    "label": "Level 3",
+    "title": "Vents 3",
+    "shape": "circularImage",
+    "image": "./img/vents.png",
+    "requirements": {
+      "items": [
+        [
+          4,
+          "Electric motor"
+        ],
+        [
+          4,
+          "Car battery"
+        ],
+        [
+          14,
+          "Bundle of wires"
+        ],
+        [
+          5,
+          "Printed circuit board"
+        ],
+        [
+          5,
+          "Metal spare parts"
+        ]
+      ],
+      "skills": [
+        [
+          "Strength",
+          3
+        ]
+      ]
+    }
+  },
+  {
+    "id": "WC1",
+    "tarkovToolsId": 44,
+    "label": "Level 1",
+    "title": "Water Collector 1",
+    "shape": "circularImage",
+    "image": "./img/water-collector.png",
+    "requirements": {
+      "items": [
+        [
+          4,
+          "Corrugated hose"
+        ],
+        [
+          5,
+          "Bolts"
+        ],
+        [
+          5,
+          "Screw nuts"
+        ],
+        [
+          3,
+          "Duct tape"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "WC2",
+    "tarkovToolsId": 45,
+    "label": "Level 2",
+    "title": "Water Collector 2",
+    "shape": "circularImage",
+    "image": "./img/water-collector.png",
+    "requirements": {
+      "items": [
+        [
+          6,
+          "Corrugated hose"
+        ],
+        [
+          2,
+          "Electric motor"
+        ],
+        [
+          2,
+          "Toolset"
+        ],
+        [
+          2,
+          "KEKTAPE duct tape"
+        ]
+      ],
+      "loyalty": [
+        [
+          "Jaeger",
+          "LL2"
+        ]
+      ],
+      "skills": [
+        [
+          "Attention",
+          3
+        ]
+      ]
+    }
+  },
+  {
+    "id": "WC3",
+    "tarkovToolsId": 46,
+    "label": "Level 3",
+    "title": "Water Collector 3",
+    "shape": "circularImage",
+    "image": "./img/water-collector.png",
+    "requirements": {
+      "items": [
+        [
+          2,
+          "Pliers Elite"
+        ],
+        [
+          5,
+          "Shustrilo sealing foam"
+        ],
+        [
+          1,
+          "Ratchet wrench"
+        ],
+        [
+          20000,
+          "Roubles"
+        ]
+      ],
+      "loyalty": [
+        [
+          "Jaeger",
+          "LL3"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "W1",
+    "tarkovToolsId": 47,
+    "label": "Level 1",
+    "title": "Workbench 1",
+    "shape": "circularImage",
+    "image": "./img/workbench.png",
+    "requirements": {
+      "items": [
+        [
+          2,
+          "Screw nuts"
+        ],
+        [
+          2,
+          "Bolts"
+        ],
+        [
+          1,
+          "Leatherman Multitool"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "W2",
+    "tarkovToolsId": 48,
+    "label": "Level 2",
+    "title": "Workbench 2",
+    "shape": "circularImage",
+    "image": "./img/workbench.png",
+    "requirements": {
+      "items": [
+        [
+          3,
+          "Toolset"
+        ],
+        [
+          2,
+          "Electric drill"
+        ],
+        [
+          6,
+          "Bolts"
+        ],
+        [
+          3,
+          "Weapon parts"
+        ]
+      ],
+      "loyalty": [
+        [
+          "Mechanic",
+          "LL2"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "W3",
+    "tarkovToolsId": 49,
+    "label": "Level 3",
+    "title": "Workbench 3",
+    "shape": "circularImage",
+    "image": "./img/workbench.png",
+    "requirements": {
+      "items": [
+        [
+          2,
+          "Pliers Elite"
+        ],
+        [
+          1,
+          "#FireKlean gun lube"
+        ],
+        [
+          395000,
+          "Roubles"
+        ],
+        [
+          2,
+          "Can of thermite"
+        ]
+      ],
+      "loyalty": [
+        [
+          "Mechanic",
+          "LL3"
+        ]
+      ]
+    }
+  }
+]
