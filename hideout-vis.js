@@ -483,7 +483,7 @@ var stationRequirements = [
   }
 ];
 
-var stations_en_US = require("loc/enUS.json");
+var stations_en_US = require("./loc/enUS.json");
 
 // create an array with nodes
 var nodes = null;
