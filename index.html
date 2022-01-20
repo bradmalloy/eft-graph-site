@@ -7,7 +7,7 @@
 	<meta name="description"
 		content="Last updated: 2021-01-18. Learn the optimal path for upgrading your hideout in Escape From Tarkov." />
 	<meta name="keywords" content="escapefromtarkov,hideout,upgrades,guide" />
-	<meta name="author" content="/u/xenocidebrm" />
+	<meta name="author" content="@brad-io" />
 	<meta name=”viewport” content=”width=device-width, initial-scale=1″>
 	<meta name="revision" content="2021-01-18" />
 	<title>Hideout Graph | Optimal Tarkov Hideout Build</title>
@@ -67,9 +67,6 @@
 				</p>
 			</div>
 		</div>
-		<div class="lang">
-			<a href="#" onclick="switchToEn()">English</a> | <a href="#" onclick="switchToRu()">Русский</a>
-		</div>
 	</div>
 
 	<div class="content">
@@ -77,13 +74,11 @@
 			<div id="hideout-network"></div>
 		</div>
 		<div class="rightMenu">
-			<span id="infoBoxTitle">Диаграмма убежища</span>
+			<span id="infoBoxTitle">Hideout Graph</span>
 			<div class="rightMenuContent" id="infoBoxContent">
-				<h3>Диаграмма интерактивна, попробуйте!</h3>
+				<h3>Scroll to zoom, click to activate nodes.</h3>
 			</div>
-			<div id="totalCostWrapper">
-
-			</div>
+			<div id="totalCostWrapper"></div>
 		</div>
 	</div>
 
@@ -156,7 +151,6 @@
 	</div>
 
 	<script src="vis-network.min.js"></script>
-	<script src="loc/ru-RU.js"></script>
 	<script src="hideout-vis-bundled.js"></script>
 	<link rel="stylesheet" href="vis-network.min.css" />
 	<!-- Please excuse the artisinal, hand-crafted icons. I don't have assets, so I had to take screenshots of my game. -->

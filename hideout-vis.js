@@ -1,9 +1,16 @@
 // movin on up
-if (top != self) {
+if (top !== self) {
   console.log("It looks like the website you're visiting loading this site in a frame.");
   console.log("Redirecting you to eft-graph.com...");
   top.location.replace(self.location.href);
 }
+
+/**
+ * Historical note: while a lot of this DOM modification
+ * seems arbitrary, it used to be used with different locales
+ * than English-US. When we switched our backend data pipeline to
+ * use tarkov-tools, we lost the ability to keep up-to-date in other locales.
+ */
 
 // colors
 var colorGold = "#C2B7A3";
@@ -29,20 +36,12 @@ if (typeof navigator.language == "undefined") {
   locale = navigator.systemLanguage; // Works for IE only
 }
 // And wiki URL
-var wikiBaseUrl = null;
-if (locale == 'ru-RU' || locale == 'ru_RU') {
-  wikiBaseUrl = "https://escapefromtarkov-ru.gamepedia.com/";
-} else {
-  wikiBaseUrl = "https://escapefromtarkov.gamepedia.com/";
-}
+var wikiBaseUrl = "https://escapefromtarkov.gamepedia.com/";
+
 // And initial infoBox content
-if (locale == 'ru-RU' || locale == 'ru_RU') {
-  infoBoxTitle.innerHTML = "Диаграмма убежища";
-  infoBoxContent.innerHTML = "<h3>Диаграмма интерактивна, попробуйте!</h3>";
-} else {
-  infoBoxTitle.innerHTML = "Hideout Graph";
-  infoBoxContent.innerHTML = "<h3>Scroll to zoom, click to activate nodes.</h3>";
-}
+infoBoxTitle.innerHTML = "Hideout Graph";
+infoBoxContent.innerHTML = "<h3>Scroll to zoom, click to activate nodes.</h3>";
+
 // Settings checkbox - when toggled, clear and redraw
 // prevents the already-selected edges from staying
 ancestorCheckbox.addEventListener("change", event => {
@@ -483,15 +482,11 @@ var stationRequirements = [
   }
 ];
 
-var stations_en_US = require("./loc/enUS.json");
+// load node info with text in it
+var stations_en_US = require("./loc/en-US.json");
 
 // create an array with nodes
-var nodes = null;
-if (locale == "ru-RU" || locale == "ru_RU") {
-  nodes = new vis.DataSet(stations_ru_RU);
-} else {
-  nodes = new vis.DataSet(stations_en_US);
-}
+var nodes = new vis.DataSet(stations_en_US);
 
 // ex: Stash 1 -> Stash 2
 // ex: Workshop req. for Intel Center
@@ -563,7 +558,7 @@ function getAllAncestors(rootNodeId, listOfChildren) {
     listOfChildren = [];
   }
   rootNode.edges.forEach(edge => {
-    if (edge.toId == rootNodeId) {
+    if (edge.toId === rootNodeId) {
       let child = edge.from;
       listOfChildren.push(child);
       listOfChildren.push(getAllAncestors(child.id));
@@ -589,7 +584,7 @@ function getCumulativeCost(nodeId) {
     let reqs = node.options.requirements;
     // Requirements are stored as an array, with the count of things needed 1st, and the item name 2nd
     // ex: [15000, "Rubles"] or [1, "LEDX"]
-    if (reqs.items && reqs.items != []) {
+    if (reqs.items && reqs.items !== []) {
       reqs.items.forEach(requirementArray => {
         let numberRequired = requirementArray[0];
         let itemName = requirementArray[1];
@@ -598,7 +593,7 @@ function getCumulativeCost(nodeId) {
       });
     }
     // Skills are stored as ["Skill name", level]
-    if (reqs.skills && reqs.skills != []) {
+    if (reqs.skills && reqs.skills !== []) {
       reqs.skills.forEach(requirementArray => {
         let skillName = requirementArray[0];
         let levelRequired = requirementArray[1];
@@ -608,7 +603,7 @@ function getCumulativeCost(nodeId) {
     }
     // Loyalty requirements are stored as ["Trader name", "LLX"]
     // Where X is an integer
-    if (reqs.loyalty && reqs.loyalty != []) {
+    if (reqs.loyalty && reqs.loyalty !== []) {
       reqs.loyalty.forEach(requirementArray => {
         let traderName = requirementArray[0];
         let levelRequiredString = requirementArray[1];
@@ -641,9 +636,9 @@ function generateTotalCostHtml(totalCostObject) {
       output += key + ': ' + value + '<br/>'
     }
   }
-  if (Object.entries(totalCostObject.loyalty).length == 0 
-      && Object.entries(totalCostObject.skills).length == 0 
-      && Object.entries(totalCostObject.items).length == 0) {
+  if (Object.entries(totalCostObject.loyalty).length === 0
+      && Object.entries(totalCostObject.skills).length === 0
+      && Object.entries(totalCostObject.items).length === 0) {
         output += '<h3>🙃 Nothing to see here...</h3>'
   }
   output += '</div>';
@@ -681,12 +676,8 @@ function unHoverNodesAndEdges() {
 function formatRequirements(requirementsObject) {
   // TODO: clean this the fuck up
   var output = "<div>";
-  if (locale == "en-US") {
-    output += "<h3>Items</h3>";
-  }
-  if (locale == "ru-RU") {
-    output += "<h3>Предметы</h3>";
-  }
+  output += "<h3>Items</h3>";
+
   if (requirementsObject.items && requirementsObject.items.length > 0) {
     requirementsObject.items.forEach(itemArray => {
       // itemArray is an array, where the first item is an amount and the 2nd is an item name
@@ -705,19 +696,13 @@ function formatRequirements(requirementsObject) {
       output += "<h4>" + amount + " " + itemLinkHtml + "</h4>";
     });
   } else {
-    if (locale == "en-US") {
+    if (locale === "en-US") {
       output += "<h4>No item requirements!</h4>";
-    }
-    if (locale == "ru-RU") {
-      output += "<h4>Нет требований к товару!</h4>";
     }
   }
   output += "<br/>"
   if (locale == "en-US") {
     output += "<h3>Loyalty</h3>";
-  }
-  if (locale == "ru-RU") {
-    output += "<h3>Лояльность</h3>";
   }
   if (requirementsObject.loyalty && requirementsObject.loyalty.length > 0) {
     requirementsObject.loyalty.forEach(vendorArray => {
@@ -736,16 +721,10 @@ function formatRequirements(requirementsObject) {
     if (locale == "en-US") {
       output += "<h4>No vendor loyalty requirements!</h4>";
     }
-    if (locale == "ru-RU") {
-      output += "<h4>Нет требований к лояльности продавца!</h4>";
-    }
   }
   output += "<br/>"
   if (locale == "en-US") {
     output += "<h3>Skills</h3>";
-  }
-  if (locale == "ru-RU") {
-    output += "<h3>Умения</h3>";
   }
   if (requirementsObject.skills && requirementsObject.skills.length > 0) {
     requirementsObject.skills.forEach(skillArray => {
@@ -766,9 +745,6 @@ function formatRequirements(requirementsObject) {
   } else {
     if (locale == "en-US") {
       output += "<h4>No skill requirements!</h4>";
-    }
-    if (locale == "ru-RU") {
-      output += "<h4>Нет требований к навыкам!</h4>";
     }
   }
   return output + "</div>";
@@ -957,17 +933,17 @@ function switchToEn() {
 }
 
 function switchToRu() {
-  console.log("Switching to Russian!");
-  locale = "ru-RU";
-  wikiBaseUrl = "https://escapefromtarkov-ru.gamepedia.com/";
-  var newNodes = new vis.DataSet(stations_ru_RU);
-  var newData = {
-    nodes: newNodes,
-    edges: edges
-  };
-  network.setData(newData);
-  infoBoxTitle.innerHTML = "Диаграмма убежища";
-  infoBoxContent.innerHTML = "<h3>Диаграмма интерактивна, попробуйте!</h3>";
+  // console.log("Switching to Russian!");
+  // locale = "ru-RU";
+  // wikiBaseUrl = "https://escapefromtarkov-ru.gamepedia.com/";
+  // var newNodes = new vis.DataSet(stations_ru_RU);
+  // var newData = {
+  //   nodes: newNodes,
+  //   edges: edges
+  // };
+  // network.setData(newData);
+  // infoBoxTitle.innerHTML = "Диаграмма убежища";
+  // infoBoxContent.innerHTML = "<h3>Диаграмма интерактивна, попробуйте!</h3>";
 }
 
 function persistNodeAsDone(nodeId) {
