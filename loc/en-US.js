@@ -1,1 +1,1 @@
-var stations_en_US = require("./enUS.json");
+var stations_en_US = require("enUS.json");
